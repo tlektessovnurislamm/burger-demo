@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep the cafe catalog in a separate browser-safe data module so sample items can be replaced without changing presentation.
+- Keep the demo basket in React state; ordering is not connected until actual cafe order requirements are supplied.
