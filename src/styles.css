@@ -117,7 +117,12 @@ h1 em { font-style: normal; color: var(--primary); }
 .about-band p { font-size: 12px; line-height: 1.9; color: var(--muted-foreground); margin: 0; }
 .about-band svg { color: var(--primary); }
 footer { border-top: 1px solid var(--border); padding-block: 28px; }
-.footer-inner { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 20px; }
+.footer-inner { display: grid; grid-template-columns: minmax(0,1fr) auto auto; align-items: center; gap: 20px; }
+.footer-contacts { display: flex; align-items: center; gap: 14px; }
+.social-links { display: flex; gap: 10px; }
+.social-links a { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--foreground); display: flex; align-items: center; justify-content: center; color: var(--foreground); transition: all .25s ease; }
+.social-links a:hover { background: var(--primary); border-color: var(--primary); color: var(--primary-foreground); transform: translateY(-2px); }
+.basket-hint { font-size: 11px; line-height: 1.6; color: var(--muted-foreground); text-align: center; margin: 10px 0 0; }
 .footer-inner p { font-size: 10px; color: var(--muted-foreground); text-align: right; }
 .footer-inner .brand-icon { width: 33px; }
 .footer-inner .brand strong { font-size: 17px; }
