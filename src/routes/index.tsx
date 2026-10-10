@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import { Menu, MapPin, ShoppingBag, ArrowUpRight, ArrowRight, Plus, Minus, Beef, Flame, Leaf, Utensils, CupSoda, Hamburger, Heart, Sparkles, BadgeCheck, Info } from 'lucide-react';
+import { Menu, MapPin, ShoppingBag, ArrowUpRight, ArrowRight, Plus, Minus, Beef, Flame, Leaf, Utensils, CupSoda, Hamburger, Heart, Sparkles, Info, Instagram, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTitle, SheetDescription } from '@/components/ui/sheet';
 import { products, formatPrice } from '@/lib/menu';
@@ -22,7 +22,17 @@ function Brand() {
   return <a href="#" className="brand" aria-label="CHEF'S FOOD — главная"><Hamburger className="brand-icon" /><div><strong>CHEF&#39;S</strong><span>FOOD</span></div></a>;
 }
 
-const categories = [ { name: 'Всё меню', icon: Utensils }, { name: 'Бургеры', icon: Hamburger }, { name: 'Закуски', icon: Flame }, { name: 'Напитки', icon: CupSoda } ];
+const INSTAGRAM_URL = 'https://www.instagram.com/cf_kandyagash';
+const WHATSAPP_NUMBER = '77086202071';
+
+function SocialLinks({ className = '' }: { className?: string }) {
+  return <div className={`social-links ${className}`}>
+    <a href={INSTAGRAM_URL} target="_blank" rel="noopener noreferrer" aria-label="CHEF'S FOOD в Instagram"><Instagram size={19} /></a>
+    <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp"><MessageCircle size={19} /></a>
+  </div>;
+}
+
+const categories =  [ { name: 'Всё меню', icon: Utensils }, { name: 'Бургеры', icon: Hamburger }, { name: 'Закуски', icon: Flame }, { name: 'Напитки', icon: CupSoda } ];
 
 function Index() {
   const [category, setCategory] = useState('Всё меню');
