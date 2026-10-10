@@ -8,10 +8,10 @@ import heroImage from '@/assets/burger-hero.jpg';
 
 export const Route = createFileRoute('/')({
   head: () => ({ meta: [
-    { title: 'Burger House — бургеры с характером' },
-    { name: 'description', content: 'Сочные бургеры, хрустящие закуски и любимые вкусы. Выбирайте своё в меню Burger House.' },
-    { property: 'og:title', content: 'Burger House — бургеры с характером' },
-    { property: 'og:description', content: 'Знакомьтесь с меню Burger House: бургеры, закуски и напитки.' },
+    { title: "CHEF'S FOOD — бургеры с характером" },
+    { name: 'description', content: "Сочные бургеры, хрустящие закуски и любимые вкусы. Выбирайте своё в меню CHEF'S FOOD." },
+    { property: 'og:title', content: "CHEF'S FOOD — бургеры с характером" },
+    { property: 'og:description', content: "Знакомьтесь с меню CHEF'S FOOD: бургеры, закуски и напитки." },
     { property: 'og:type', content: 'website' },
     { name: 'twitter:card', content: 'summary_large_image' },
   ] }),
@@ -19,7 +19,7 @@ export const Route = createFileRoute('/')({
 });
 
 function Brand() {
-  return <a href="#" className="brand" aria-label="Burger House — главная"><Hamburger className="brand-icon" /><div><strong>BURGER</strong><span>HOUSE</span></div></a>;
+  return <a href="#" className="brand" aria-label="CHEF'S FOOD — главная"><Hamburger className="brand-icon" /><div><strong>CHEF&#39;S</strong><span>FOOD</span></div></a>;
 }
 
 const categories = [ { name: 'Всё меню', icon: Utensils }, { name: 'Бургеры', icon: Hamburger }, { name: 'Закуски', icon: Flame }, { name: 'Напитки', icon: CupSoda } ];
@@ -69,9 +69,9 @@ function Index() {
       <section id="special" className="promo-band"><div className="promo-inner page-width"><Hamburger className="promo-icon" /><div><h2>Хороший день начинается с бургера.</h2><p>Добавь хрустящий фри — и пусть весь мир подождёт.</p></div><Button variant="cafe" asChild><a href="#menu" onClick={() => setCategory('Закуски')}>Добавить к бургеру <ArrowUpRight /></a></Button></div></section>
       <section id="about" className="about-band page-width"><h2>Без лишнего.<br />Только хороший вкус.</h2><div><Beef size={27} /><h3>Всё дело в ингредиентах</h3><p>Мягкая булочка, сочная котлета и свежие овощи. Ничего лишнего — всё на своём месте.</p></div><div><Leaf size={27} /><h3>Сделано с характером</h3><p>Любим классику, не боимся нового и верим: хороший бургер говорит сам за себя.</p></div></section>
     </main>
-    <footer id="contacts"><div className="footer-inner page-width"><Brand /><p>© 2026 Burger House · Сделано с аппетитом<br />Меню и цены демонстрационные. Контакты кафе появятся позже.</p></div></footer>
+    <footer id="contacts"><div className="footer-inner page-width"><Brand /><p>© 2026 CHEF'S FOOD · Сделано с аппетитом<br />Меню и цены демонстрационные. Контакты кафе появятся позже.</p></div></footer>
     {count > 0 && <Button className="mobile-cart" variant="cafe" onClick={() => setBasketOpen(true)}><span className="flex items-center gap-2"><ShoppingBag /> Корзина · {count}</span><span>{formatPrice(total)} <ArrowRight className="inline ml-2" /></span></Button>}
-    <Sheet open={navigationOpen} onOpenChange={setNavigationOpen}><SheetContent className="cafe-sheet"><SheetTitle><Brand /></SheetTitle><SheetDescription className="sr-only">Навигация Burger House</SheetDescription><nav className="drawer-nav">{[{name:'Главная',href:'#'}, {name:'Меню',href:'#menu'}, {name:'Вкусный момент',href:'#special'}, {name:'О нас',href:'#about'}, {name:'Контакты',href:'#contacts'}].map(link => <a key={link.name} href={link.href} onClick={() => setNavigationOpen(false)}>{link.name}<ArrowUpRight size={20} /></a>)}</nav><div className="drawer-note"><h3>ТВОЙ БУРГЕР ЖДЁТ.</h3><p>Большой вкус. Маленький повод порадовать себя.</p><Button variant="cafe" asChild><a href="#menu" onClick={() => setNavigationOpen(false)}>В меню <ArrowRight /></a></Button></div></SheetContent></Sheet>
+    <Sheet open={navigationOpen} onOpenChange={setNavigationOpen}><SheetContent className="cafe-sheet"><SheetTitle><Brand /></SheetTitle><SheetDescription className="sr-only">Навигация CHEF'S FOOD</SheetDescription><nav className="drawer-nav">{[{name:'Главная',href:'#'}, {name:'Меню',href:'#menu'}, {name:'Вкусный момент',href:'#special'}, {name:'О нас',href:'#about'}, {name:'Контакты',href:'#contacts'}].map(link => <a key={link.name} href={link.href} onClick={() => setNavigationOpen(false)}>{link.name}<ArrowUpRight size={20} /></a>)}</nav><div className="drawer-note"><h3>ТВОЙ БУРГЕР ЖДЁТ.</h3><p>Большой вкус. Маленький повод порадовать себя.</p><Button variant="cafe" asChild><a href="#menu" onClick={() => setNavigationOpen(false)}>В меню <ArrowRight /></a></Button></div></SheetContent></Sheet>
     <Sheet open={basketOpen} onOpenChange={setBasketOpen}><SheetContent className="cafe-sheet"><SheetTitle className="font-display text-3xl uppercase">Твой заказ</SheetTitle><SheetDescription>Всё самое вкусное — здесь.</SheetDescription>{count === 0 ? <div className="empty-basket"><ShoppingBag /><h3>Пока пусто</h3><p>Самое время выбрать любимый бургер.</p><Button variant="cafe" asChild><a href="#menu" onClick={() => setBasketOpen(false)}>Посмотреть меню <ArrowRight /></a></Button></div> : <>{products.filter(p => (basket[p.id] || 0) > 0).map(p => <div className="basket-item" key={p.id}>{p.image ? <img src={p.image} alt={p.name} /> : <CupSoda />}<div><h3>{p.name}</h3><span className="text-xs text-muted-foreground">{p.weight}</span><div className="basket-line"><Quantity id={p.id} /><strong>{formatPrice(p.price * (basket[p.id] || 0))}</strong></div></div></div>)}<div className="basket-total"><span>Итого</span><span>{formatPrice(total)}</span></div><div className="demo-note"><BadgeCheck size={20} className="mb-2 text-primary" />Это пример заказа. Приём заказов пока не подключён — настоящее меню скоро появится.</div><Button variant="category" className="mt-5 w-full" onClick={() => setBasketOpen(false)}>Продолжить выбирать <ArrowRight /></Button></>}</SheetContent></Sheet>
   </>;
 }
